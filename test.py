@@ -1,10 +1,11 @@
 import requests
 
-print("Alffex\n")
+print("Alffex iniciado\n")
 
-historico = "" 
+historico = ""
 
 while True:
+
     user_input = input("Você: ")
 
     if user_input.lower() == "sair":
@@ -16,7 +17,8 @@ while True:
         "http://localhost:11434/api/generate",
         json={
             "model": "llama3",
-            "prompt": historico
+            "prompt": historico,
+            "stream": False
         }
     )
 
@@ -26,4 +28,4 @@ while True:
 
     historico += f"Alffex: {resposta}\n"
 
-    print("Alffex:", resposta, "\n")
+    print(f"\nAlffex: {resposta}\n")
